@@ -1,6 +1,6 @@
 FROM python:3.8.5-slim
 
-RUN apt-get update && apt-get install -y postgresql libpq-dev gcc psycopg2-binary python3-psycopg2
+RUN apt-get update && apt-get install -y postgresql libpq-dev gcc python3-psycopg2
 RUN mkdir /server
 WORKDIR /server
 
