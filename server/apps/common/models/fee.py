@@ -10,6 +10,7 @@ class Fee(models.Model):
         verbose_name=_("Name"),
     )
     fee = FeeField(verbose_name=_("Fee"))
+    another_fee = FeeField(verbose_name=_("Fee"))
 
     objects = models.Manager()
 
