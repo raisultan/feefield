@@ -29,15 +29,17 @@ class FeeType(FlatChoicesMixin):
 
 
 class FeeField(MultiColumnField):
-    fields = {
-        "type": CharField(
-            max_length=14,
-            choices=FeeType.CHOICES,
-            verbose_name=_("Type"),
-        ),
-        "value": DecimalField(
-            max_digits=10,
-            decimal_places=settings.MONEY_DECIMAL_PLACES,
-            verbose_name=_("Value"),
-        )
-    }
+    def __init__(self, *args, **kwargs):
+        self.fields = {
+            'type': CharField(
+                max_length=14,
+                choices=FeeType.CHOICES,
+                verbose_name=_("Type"),
+            ),
+            'value': DecimalField(
+                max_digits=10,
+                decimal_places=settings.MONEY_DECIMAL_PLACES,
+                verbose_name=_("Value"),
+            )
+        }
+        super(FeeField, self).__init__(*args, **kwargs)
